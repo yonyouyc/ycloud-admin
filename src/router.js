@@ -1,11 +1,13 @@
 import ko from 'knockout'
 import $ from 'jquery'
-import buyofferlist from './pages/buyoffer/list'
-import index from './pages/index/index'
+const buyofferlist = resolve => require(['./pages/buyoffer/list'], resolve)
+const index = resolve => require(['./pages/index/index'], resolve)
 function initPage (page) {
-  ko.cleanNode(document.getElementById('bodycontent'))
-  $('#app').html(page.template)
-  page.init()
+  page(function (item) {
+    ko.cleanNode(document.getElementById('bodycontent'))
+    $('#app').html(item.default.template)
+    item.default.init()
+  })
 }
 var routesList = {
   '/buyofferlist': buyofferlist,
