@@ -1,0 +1,48 @@
+<y-box>
+  <y-boxfilter params="title:'表单'">
+  </y-boxfilter>
+  <y-boxcontent params="title: '基本信息'">
+    <div class="row">
+    <y-form params="labelWidth: '120px'">
+      <div class="col-md-4">
+        <y-formitem params="label:'输入框'">
+          <y-input params="placeholder:'请输入文字'"></y-input>
+        </y-formitem>
+        <y-formitem params="label:'下拉框'">
+          <y-select params="dataList:$root.selectList"></y-select>
+        </y-formitem>
+        <y-formitem params="label:'日期'">
+          <y-datepicker params="placeholder:'请选择日期',data: $root.datepicker"></y-datepicker>
+        </y-formitem>
+        <y-formitem params="label:'时间'">
+          <y-datetimepicker params="placeholder:'请选择时间',data: $root.datepicker"></y-datetimepicker>
+        </y-formitem>
+        <y-formitem params="label:'带图标input'">
+          <y-input params="type:'text', iconClass:'fa fa-search'"></y-input>
+        </y-formitem>
+        <y-formitem params="label:'开关'">
+          <y-switch params="dataList:[{label:'男', value:'1'},{label:'女', value:'2'}]"></y-switch>
+        </y-formitem>
+      </div>
+      <div class="col-md-4">
+        <y-formitem params="label:'多选'">
+          <y-checkbox params="dataList:[{label:'一级', value:'1'},{label:'二级', value:'2'},{label:'三级', value:'3'}]"></y-checkbox>
+        </y-formitem>
+        <y-formitem params="label:'单选'">
+          <y-radio params="dataList:[{label:'男', value:'1'},{label:'女', value:'2'}]"></y-radio>
+        </y-formitem>
+        <y-formitem params="label:'级联'">
+          <y-cascader params='data: $root.cascaderData,selectedValue: $root.cascaderValue, clearable: true'>
+          </y-cascader>
+        </y-formitem>
+      </div>
+      <div class="col-md-12">
+        <y-formitem params="label:''">
+          <y-button params="type:'primary'">&nbsp;&nbsp;提交&nbsp;&nbsp;</y-button>
+          <y-button params="">&nbsp;&nbsp;取消&nbsp;&nbsp;</y-button>
+        </y-formitem>
+      </div>
+    </y-form>
+    </div>
+  </y-boxcontent>
+</y-box>

@@ -2,6 +2,7 @@ import ko from 'knockout'
 import $ from 'jquery'
 const buyofferlist = resolve => require(['./pages/buyoffer/list'], resolve)
 const index = resolve => require(['./pages/index/index'], resolve)
+const form = resolve => require(['./pages/form/index'], resolve)
 function initPage (page) {
   page(function (item) {
     ko.cleanNode(document.getElementById('bodycontent'))
@@ -11,7 +12,8 @@ function initPage (page) {
 }
 var routesList = {
   '/buyofferlist': buyofferlist,
-  '/': index
+  '/': index,
+  '/form': form
 }
 var routes = {}
 Object.keys(routesList).forEach(item => {
