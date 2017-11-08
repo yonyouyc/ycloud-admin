@@ -1,0 +1,10 @@
+<div class="y-grid-memo">
+  <span class="y-grid-memo-text" style="margin:10px 0;" data-bind="text:value,visible:visible,click:handleClick"></span>
+  <div data-bind="visible:!visible()">
+    <textarea data-bind="textInput:value" name="" id="" rows="2" style="width: 100%;margin-top:10px;"></textarea>
+    <div class="text-right" style="margin-bottom: 10px;">
+      <y-button params="type:'primary',click:handleClick">保存</y-button>
+      <y-button params="click:handleClick">取消</y-button>
+    </div>
+  </div>
+</div>

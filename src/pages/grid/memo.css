@@ -1,0 +1,19 @@
+.y-grid-memo .y-grid-memo-text{
+  display: inline-block;
+  width: 100%;
+  border: solid 1px transparent;
+  padding: 4px 10px;
+  border-radius:2px;
+  cursor: pointer;
+}
+.y-grid-memo .y-grid-memo-text:hover{
+  border:1px solid rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.y-grid-memo textarea{
+  border:solid 1px #ececec;
+}
+.y-grid-memo textarea:focus{
+  outline: 0;
+}
+
