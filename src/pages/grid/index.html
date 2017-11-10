@@ -1,9 +1,24 @@
 <y-box>
   <y-boxfilter params="title:'表格'">
   </y-boxfilter>
-  <y-boxcontent params="title: '可编辑表格'">
-    <y-grid params="columns:$root.columns,rows:$root.rows">
-
+  <y-boxcontent>
+    <h4>常用表格请参见<a style="color:skyblue" target="_blank" href="#/buyofferlist">寻源管理</a>页面</h4>
+  </y-boxcontent>
+  <y-boxcontent params="title: '动态切换可编辑+自动高度'">
+    <y-grid params="maxheight:'auto',columns:$root.columns,rows:$root.rows">
     </y-grid>
+  </y-boxcontent>
+  <y-boxcontent params="title: '行变色+自动前N列合并单元格+固定列支持横向滚动条'">
+    <y-grid params="isStripe:true,rowspan:{maxCol: 2},id:'rowspantable',columns:$root.rowspancol,rows: $root.rowspanrows">
+    </y-grid>
+  </y-boxcontent>
+  <y-boxcontent params="title: '行选中+列可编辑'">
+    <y-grid params="isStripe: true,columns:$root.columnsEdit,rows: $root.rowsEdit"></y-grid>
+  </y-boxcontent>
+  <y-boxcontent params="title: '固定表头'">
+    开发中
+  </y-boxcontent>
+  <y-boxcontent params="title: '固定表头+固定列'">
+    开发中
   </y-boxcontent>
 </y-box>

@@ -25,6 +25,14 @@ function init () {
         }
       }
     ],
+    selectList: ko.observableArray([
+      {value: 1, label: '北京'},
+      {value: 2, label: '上海'},
+      {value: 3, label: '天津'},
+      {value: 4, label: '附件'},
+      {value: 5, label: '超过二十个字的参照超过二十个字的参照超过二十个字的参照'},
+      {value: 6, label: 'Blaskdf'}
+    ]),
     rows: ko.observableArray([
       {
         title: '列表',
@@ -34,6 +42,166 @@ function init () {
         title: 1,
         memo: ko.observable('北京市海淀区北京市海淀区北京市海淀区北京市海淀区北京市海淀区北京市海')
       }
+    ]),
+    rowspancol: ko.observableArray([
+      {
+        title: '第一列',
+        width: '100',
+        field: 'field1',
+        type: 'render',
+        renderFn: function (row) {
+          let template = `<div>${row.field1}</div>
+          <span>第一列是由多列组成</span>
+        `
+          return template
+        }
+      }, {
+        title: '第二列',
+        width: '100',
+        field: 'field2'
+      }, {
+        title: '第三列',
+        width: '400',
+        field: 'field3'
+      }, {
+        title: '第四列折行的列名',
+        width: '100',
+        field: 'field4',
+        align: 'right'
+      }, {
+        title: '第五列',
+        width: '300',
+        field: 'field5'
+      }, {
+        title: '第六列',
+        width: '300',
+        field: 'field6'
+      }
+    ]),
+    rowspanrows: ko.observableArray([
+      {
+        field1: 'A',
+        field2: 'A',
+        field3: 'C',
+        field4: 'D',
+        field5: 'E',
+        field6: 'F'
+      }, {
+        field1: 'A',
+        field2: 'A',
+        field3: 'C',
+        field4: 'D',
+        field5: 'E',
+        field6: 'F1'
+      }, {
+        field1: 'A',
+        field2: 'C',
+        field3: 'D',
+        field4: 'D',
+        field5: 'E',
+        field6: 'F2'
+      }, {
+        field1: 'A',
+        field2: 'C',
+        field3: 'E',
+        field4: 'D',
+        field5: 'E',
+        field6: 'F'
+      }, {
+        field1: 'B',
+        field2: 'B',
+        field3: 'C',
+        field4: 'D',
+        field5: 'E',
+        field6: 'F'
+      }, {
+        field1: 'B',
+        field2: 'B',
+        field3: 'C',
+        field4: 'D',
+        field5: 'E',
+        field6: 'F'
+      }, {
+        field1: 'B',
+        field2: 'B',
+        field3: 'C',
+        field4: 'D',
+        field5: 'E',
+        field6: 'F'
+      }
+    ]),
+    columnsEdit: ko.observableArray([
+      {
+        title: '',
+        field: '',
+        type: 'checkbox',
+        hidden: false,
+        width: 50
+      }, {
+        title: 'y-input',
+        hidden: false,
+        align: 'left',
+        width: '20%',
+        type: 'component',
+        compFn: function (row) {
+          return {
+            name: 'y-input',
+            params: {
+              type: 'text',
+              value: row.name,
+              disabled: row._disabled
+            }
+          }
+        }
+      },
+      {
+        title: 'component',
+        hidden: false,
+        width: '20%',
+        type: 'component',
+        compFn: function (row) {
+          return {
+            name: 'y-select',
+            params: {
+              placeholder: '多选下拉',
+              dataList: viewmodel.selectList,
+              clearable: true,
+              label: row.name,
+              id: row.id
+            }
+          }
+        }
+      }, {
+        field: 'id',
+        title: 'operationList',
+        type: 'operation',
+        operationList: [
+          {
+            title: '保存',
+            click: function (row, evt) {
+              row._disabled(true)
+              return false
+            },
+            visible: function (row) {
+              return !row._disabled()
+            }
+          }, {
+            title: '编辑',
+            click: function (row, evt) {
+              row._disabled(false)
+              return false
+            },
+            visible: function (row) {
+              return row._disabled()
+            }
+          }
+        ]
+      }
+    ]),
+    rowsEdit: ko.observableArray([
+      {id: ko.observable(1), name: ko.observable('张三')},
+      {id: ko.observable(2), name: ko.observable('张李四')},
+      {id: ko.observable(3), name: ko.observable('张李')}
     ])
   }
   ko.applyBindings(viewmodel, document.getElementById('app'))
