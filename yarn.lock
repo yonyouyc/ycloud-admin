@@ -5711,9 +5711,9 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-ycloud@^1.1.31:
-  version "1.1.31"
-  resolved "https://registry.yarnpkg.com/ycloud/-/ycloud-1.1.31.tgz#0d116926e22834b3ad36d30ed57714a3d96d1ce4"
+ycloud@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/ycloud/-/ycloud-1.2.1.tgz#a0a5066302b2fd69214cb373b2fc2e9bdd45dc7f"
   dependencies:
     async-validator "^1.8.1"
     knockout "^3.4.2"

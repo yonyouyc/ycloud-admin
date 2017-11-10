@@ -1,0 +1,37 @@
+<y-box>
+  <y-boxfilter params="title:'下拉'">
+  </y-boxfilter>
+  <y-boxcontent params="title: '基本信息'">
+    <div class="row">
+    <y-form params="labelWidth: '150px'">
+      <div class="col-md-4">
+        <y-formitem params="label:'输入框'">
+          <y-input params="placeholder:'请输入文字'"></y-input>
+        </y-formitem>
+        <y-formitem params="label:'下拉框'">
+          <y-select params="dataList:$root.selectList"></y-select>
+        </y-formitem>
+        <y-formitem params="label: '可删除'">
+          <y-select params="dataList:$root.selectList,clearable:true"></y-select>
+        </y-formitem>
+        <y-formitem params="label: '多选'">
+          <y-select
+            params="dataList:$root.selectList,multiValue:$root.multiselect,clearable:true,multiple:true"></y-select>
+        </y-formitem>
+        <y-formitem params="label:'搜索过滤'">
+          <y-select params="dataList:$root.selectList,clearable:true,filterable:true"></y-select>
+        </y-formitem>
+        <y-formitem params="label:'远程查询'">
+          <y-select params="loadData: $root.loadSelectData,clearable:true,filterable:true"></y-select>
+        </y-formitem>
+        <y-formitem params="label:'带参照'">
+          <y-select params="hasmore:true, onmore:$root.showModal,loadData: $root.loadSelectData,clearable:true,filterable:true"></y-select>
+        </y-formitem>
+      </div>
+    </y-form>
+    <y-modal params="visible: $root.modalVisible, width:'500px',errormsg:'请选择组织',title:'组织选择！'">
+      <div>一个参照</div>
+    </y-modal>
+    </div>
+  </y-boxcontent>
+</y-box>

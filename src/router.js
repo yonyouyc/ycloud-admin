@@ -4,6 +4,9 @@ const buyofferlist = resolve => require(['./pages/buyoffer/list'], resolve)
 const index = resolve => require(['./pages/index/index'], resolve)
 const form = resolve => require(['./pages/form/index'], resolve)
 const grid = resolve => require(['./pages/grid/index'], resolve)
+const select = resolve => require(['./pages/select/index'], resolve)
+const layout = resolve => require(['./pages/layout/index'], resolve)
+
 function initPage (page) {
   page(function (item) {
     ko.cleanNode(document.getElementById('bodycontent'))
@@ -15,7 +18,9 @@ var routesList = {
   '/buyofferlist': buyofferlist,
   '/': index,
   '/form': form,
-  '/grid': grid
+  '/grid': grid,
+  '/select': select,
+  '/layout': layout
 }
 var routes = {}
 Object.keys(routesList).forEach(item => {
