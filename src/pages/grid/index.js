@@ -1,6 +1,7 @@
 import ko from 'knockout'
 import template from './index.html'
 import './memo'
+/* eslint-disable */
 function init () {
   let viewmodel = {
     b: ko.observable('i am ucloud-ko-fileupload'),
@@ -25,6 +26,40 @@ function init () {
         }
       }
     ],
+    lockheadcols: [{
+      title: '寻源项目',
+      field: 'filed1'
+    }, {
+      title: '寻源物料',
+      field: 'filed2'
+    }, {
+      title: '创建方式',
+      field: 'filed3'
+    }, {
+      title: '状态',
+      field: 'filed4'
+    }],
+    lockheadrows: ko.observableArray([
+      {filed1: '广泛寻源A001', filed2: '共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A002', filed2: '摩拜', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A003', filed2:'滴滴', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A004', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A005', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A006', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A007', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A008', filed2:'共享单车', filed3:'原材料', filed4: '修改'},
+      {filed1: '广泛寻源A009', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A010', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A011', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A012', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A012', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A012', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A012', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A012', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A012', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A012', filed2:'共享单车', filed3:'原材料', filed4: '待发布'},
+      {filed1: '广泛寻源A012', filed2:'共享单车', filed3:'原材料', filed4: '待发布'}
+    ]),
     selectList: ko.observableArray([
       {value: 1, label: '北京'},
       {value: 2, label: '上海'},
@@ -206,7 +241,7 @@ function init () {
   }
   ko.applyBindings(viewmodel, document.getElementById('app'))
 }
-
+/* eslint-disable */
 export default {
   init: init,
   template: template

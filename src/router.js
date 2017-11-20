@@ -1,6 +1,7 @@
 import ko from 'knockout'
 import $ from 'jquery'
 const buyofferlist = resolve => require(['./pages/buyoffer/list'], resolve)
+const supplylist = resolve => require(['./pages/supplylist/index'], resolve)
 const index = resolve => require(['./pages/index/index'], resolve)
 const form = resolve => require(['./pages/form/index'], resolve)
 const grid = resolve => require(['./pages/grid/index'], resolve)
@@ -20,7 +21,8 @@ var routesList = {
   '/form': form,
   '/grid': grid,
   '/select': select,
-  '/layout': layout
+  '/layout': layout,
+  '/supply': supplylist
 }
 var routes = {}
 Object.keys(routesList).forEach(item => {

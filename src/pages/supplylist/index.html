@@ -1,0 +1,27 @@
+<y-box data-bind="visible:!isShowRefer()">
+  <y-boxfilter params="title:'供应商参照交互'">
+  </y-boxfilter>
+  <y-boxcontent params="title: '询价页面供应商参照'">
+    <y-checkbox params="dataList:[{label:'邀请指定供应商询价', value:'1'}], value: $root.checkboxValue"></y-checkbox>
+    <!-- ko if: $root.checkboxValue().length >= 1 -->
+    <div class="row">
+      <div class="col-sm-2"><span style="line-height: 32px">邀请供应商</span></div>
+      <div class="col-sm-10">
+        <y-form params="labelWidth: '100px'">
+          <y-formitem params="label:'报价范围：'">
+            <y-radio params="dataList:$root.priceAreaList, value:$root.priceAreaValue"></y-radio>
+          </y-formitem>
+        </y-form>
+      </div>
+    </div>
+    <y-grid params="maxheight:'auto', rows: $root.rows, columns: $root.columns">
+      <div>
+        <y-button params="click:$root.handleSupplyApplyChange">邀请供应商</y-button>
+      </div>
+    </y-grid>
+    <!-- /ko -->
+  </y-boxcontent>
+</y-box>
+<y-box data-bind="visible:isShowRefer">
+  <y-supplychoose></y-supplychoose>
+</y-box>
