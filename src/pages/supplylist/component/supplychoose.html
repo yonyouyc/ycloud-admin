@@ -1,3 +1,15 @@
-<y-boxcontent>
-  供应商参照
+<y-boxfilter>
+  <y-state-tabs params="style:{marginBottom:0},handler: $parent.handleTabChange, index: $parent.curIndex, items: $parent.items, hideNum:true"></y-state-tabs>
+  <div class="pull-right">
+    <span style="margin-right: 10px">已邀请 <span data-bind="text:$parent.allSupplyCount"></span> 名供应商</span>
+    <y-button params="type:'primary',click:$parent.handleFinish">&nbsp;&nbsp;完成&nbsp;&nbsp;</y-button>
+  </div>
+</y-boxfilter>
+<y-boxcontent data-bind="visible: tabIndex() == 1">
+  <y-manual params="invitedSupplyList:$parent.invitedSupplyList"></y-manual>
+</y-boxcontent>
+<y-boxcontent data-bind="visible: tabIndex() == 2">
+  <y-fromcategory params="materialList: $parent.materialList,invitedSupplyList:$parent.invitedSupplyList">
+
+  </y-fromcategory>
 </y-boxcontent>

@@ -8,7 +8,6 @@
   <y-boxcontent>
     <y-state-tabs params="index:$root.curStateIndex,items:$root.stateTabsItems,handler: $root.stateTabsHandler"></y-state-tabs>
     <y-grid params="minheight:'484px',maxheight:'auto',isStripe: true,columns:$root.columns,rows: $root.rows,isDataTable:true,pagination:true,totalCount: $root.totalCount">
-      <div data-bind="text:row.ref('name')"></div>
     </y-grid>
   </y-boxcontent>
 </y-box>

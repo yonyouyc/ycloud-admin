@@ -5737,9 +5737,9 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-ycloud@^1.2.11:
-  version "1.2.11"
-  resolved "https://registry.yarnpkg.com/ycloud/-/ycloud-1.2.11.tgz#d18dcafb009db0601873541e5ce16a19089203bd"
+ycloud@^1.2.18:
+  version "1.2.18"
+  resolved "https://registry.yarnpkg.com/ycloud/-/ycloud-1.2.18.tgz#7d54f90485435a2f113acab67cea188a8c5b6ade"
   dependencies:
     async-validator "^1.8.1"
     fast-uglifyjs-plugin "^0.3.0"

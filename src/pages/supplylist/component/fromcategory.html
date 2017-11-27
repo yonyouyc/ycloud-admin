@@ -1,0 +1,67 @@
+<style>
+  .iconWY{
+
+  }
+  .iconWY:before{
+    content: '万元'
+  }
+  .y-input::-webkit-outer-spin-button, .y-input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+  }
+</style>
+<div class="row">
+  <y-form params="labelWidth: '110px'" data-bind="visible:isShowSearch">
+    <div class="col-md-3">
+      <y-formitem params="label:'供应商等级体系'">
+        <y-select params="value:$parentContext.$parent.supplyLevel,clearable:true,dataList:$parentContext.$parent.supplyLevelList,placeholder:'请选择',onChange:$parentContext.$parent.supplyLevelChange"></y-select>
+      </y-formitem>
+    </div>
+    <div class="col-md-3" data-bind="visible: !$parent.levelDisabled()">
+      <y-formitem params="label:'等级'">
+        <y-select params="multiple:true,multiValue:$parentContext.$parent.levels,dataList:$parentContext.$parent.levelList,placeholder:'请选择'"></y-select>
+      </y-formitem>
+    </div>
+    <div class="col-md-12">
+      <y-formitem params="label:'服务范围'">
+        <y-radio class="y-inline-block" params="dataList:$parentContext.$parent.serviceArea, value:$parentContext.$parent.targetOrg"></y-radio>
+        <div class="y-inline-block" data-bind="visible:$parentContext.$parent.targetOrgVisible" style="width: 150px"><y-select></y-select></div>
+      </y-formitem>
+    </div>
+    <div class="col-md-3">
+      <y-formitem params="label:'注册金额'">
+        <y-input params="value:$parentContext.$parent.registerMoney,placeholder: '大于', iconClass:'iconWY', type:'number'"></y-input>
+      </y-formitem>
+    </div>
+    <div class="col-md-12">
+      <y-formitem params="label:'资历要求',style:{height:'auto'}">
+        <y-grid params="maxheight:'auto',rows: $parentContext.$parent.materialList,columns:$parentContext.$parent.searchCols"></y-grid>
+      </y-formitem>
+    </div>
+    <div class="col-md-3">
+      <y-formitem params="label:''">
+        <y-button params="type:'primary',click:$parentContext.$parent.handleSearch">搜索</y-button>
+      </y-formitem>
+    </div>
+  </y-form>
+</div>
+<div class="row" data-bind="visible:!isShowSearch()">
+  <div class="col-sm-10" >
+    <span class="y-text-primary">条件：</span>
+    <span class="y-text-assist" style="margin-left: 20px" >供应商等级体系：</span>
+
+    <y-tag params="text: supplyLevel().label ? supplyLevel().label : '--'"></y-tag>
+    <span class="y-text-assist" style="margin-left: 20px" data-bind="visible:levels().length > 0">供应商等级：</span>
+    <span data-bind="foreach:{data:levels, as:'item'}">
+      <y-tag params="text: item.label"></y-tag>
+    </span>
+    <span class="y-text-assist" style="margin-left: 20px" >注册金额：</span>
+    <y-tag params="text: function () {return '>' + (registerMoney() ? registerMoney() : '0') + '万'}()"></y-tag>
+  </div>
+  <div class="col-sm-2 text-right">
+    <span class="y-text-link" data-bind="click:handleEditCondition">编辑条件</span>
+  </div>
+  <div class="col-sm-12">
+    <y-grid params="columns:supplyCols,rows:supplyRows"></y-grid>
+  </div>
+</div>
+

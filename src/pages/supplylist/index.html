@@ -1,4 +1,4 @@
-<y-box data-bind="visible:!isShowRefer()">
+<y-box data-bind="visible:!isShowRefer() && !isShowAssigned()">
   <y-boxfilter params="title:'供应商参照交互'">
   </y-boxfilter>
   <y-boxcontent params="title: '询价页面供应商参照'">
@@ -6,15 +6,19 @@
     <!-- ko if: $root.checkboxValue().length >= 1 -->
     <div class="row">
       <div class="col-sm-2"><span style="line-height: 32px">邀请供应商</span></div>
-      <div class="col-sm-10">
+      <div class="col-sm-7">
         <y-form params="labelWidth: '100px'">
           <y-formitem params="label:'报价范围：'">
             <y-radio params="dataList:$root.priceAreaList, value:$root.priceAreaValue"></y-radio>
           </y-formitem>
         </y-form>
       </div>
+      <div class="col-sm-3 text-right" style="line-height: 32px">
+        <a class="y-text-link" data-bind="visible:$root.rows().length>0,click:$root.handleAssignArea">分配报价范围</a>
+        <a class="y-text-link" data-bind="visible:$root.rows().length>0,click:$root.handleInviteSupplier">邀请供应商</a>
+      </div>
     </div>
-    <y-grid params="maxheight:'auto', rows: $root.rows, columns: $root.columns">
+    <y-grid params="ref:'invitedGrid',isDataTable:true,maxheight:'auto', rows: $root.rows, columns: $root.columns">
       <div>
         <y-button params="click:$root.handleSupplyApplyChange">邀请供应商</y-button>
       </div>
@@ -23,5 +27,8 @@
   </y-boxcontent>
 </y-box>
 <y-box data-bind="visible:isShowRefer">
-  <y-supplychoose></y-supplychoose>
+  <y-supplychoose params="materialList: $root.MaterialList,invitedSupplyList:$parent.invitedSupplyList, isShowRefer:$parent.isShowRefer"></y-supplychoose>
 </y-box>
+<y-modal params="visible: isShowAssigned, width:'70%',errormsg:'请选择组织',title:'分配报价品'">
+  <y-grid params="maxheight:'400px',rows:$root.MaterialList,columns:$root.columnsAssign"></y-grid>
+</y-modal>
