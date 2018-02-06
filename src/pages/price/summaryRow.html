@@ -1,0 +1,25 @@
+<div class="y-relative">
+  <div>
+    <span style="font-weight: bold" data-bind="text: row.materialName"></span>
+    <span style="margin-left:200px">数量：</span><span style="color:red" data-bind="text: row.num + row.unit"></span>
+    <span style="margin-left:50px">需求组织：<span data-bind="text:row.reqOrg"></span>
+    </span>
+  </div>
+  <div>
+    规格：<span data-bind="text:row.spec"></span>
+  </div>
+  <div>
+    备注：<span data-bind="text:row.remark"> </span>
+  </div>
+  <div class="row-refuse" style="position: absolute;right: 20px;top: 27%;">
+    <y-button params="">拒绝</y-button>
+  </div>
+</div>
+<style>
+  .row-refuse{
+    display: none;
+  }
+  .y-relative:hover .row-refuse{
+    display: inline-block;
+  }
+</style>

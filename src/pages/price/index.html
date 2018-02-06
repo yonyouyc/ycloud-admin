@@ -1,0 +1,75 @@
+<y-box>
+  <y-breadcrumb params="data:[{text:'首页',link:'#/'},
+  {text:'报价单',link:'#buyofferlist'},
+  {text:'报价详细'}],"></y-breadcrumb>
+  <y-boxsticky params="title:'xxx询价'">
+    <div class="pull-right">
+      <y-button params="type:'primary'">保存</y-button>
+      <y-button params="type:'blank'">返回</y-button>
+    </div>
+  </y-boxsticky>
+  <y-boxcontent params="title:'询价方'">
+    <h4>云采采购商</h4>
+    <y-form params="labelWidth: '100px'">
+      <y-formitem params="label:'联系人'">
+        李采购
+      </y-formitem>
+      <y-formitem params="label:'联系电话'">
+        18618477108
+      </y-formitem>
+    </y-form>
+  </y-boxcontent>
+  <y-boxcontent params="title:'要求'">
+
+    <y-form params="labelWidth: '100px'">
+      <div class="row">
+        <div class="col-md-4">
+        <y-formitem params="label:'报价人'">
+          CPT采购
+        </y-formitem>
+        </div>
+        <div class="col-md-4">
+        <y-formitem params="label:'联系电话'">
+          13911026336
+        </y-formitem>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+        <y-formitem params="label:'收货地址'">
+          北京北京北京市朝阳区
+        </y-formitem>
+        </div>
+        <div class="col-md-4">
+        <y-formitem params="label:'交货条件'">
+          无
+        </y-formitem>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <y-formitem params="label:'付款方式'">
+          现金
+        </y-formitem>
+      </div>
+      <div class="col-md-4">
+      <y-formitem params="label:'询价类型'">
+        框架协议
+      </y-formitem>
+      </div>
+    </div>
+    </y-form>
+    <h5><b>报价数据:</b></h5>
+    <y-editgrid id="editgrid" params="rows: $root.rows,columns: $root.columns">
+    </y-editgrid>
+  </y-boxcontent>
+</y-box>
+<style>
+  .y-form-item.y-form-validate{
+    margin-bottom: 5px;
+  }
+  #editgrid .y-grid table td{
+    vertical-align: top;
+    padding-top: 4px;
+  }
+</style>
