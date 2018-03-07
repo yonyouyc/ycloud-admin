@@ -1,18 +1,33 @@
-<div class="y-relative">
+<div class="y-relative" data-bind="let: {row: row}">
   <div>
     <span style="font-weight: bold" data-bind="text: row.materialName"></span>
-    <span style="margin-left:200px">数量：</span><span style="color:red" data-bind="text: row.num + row.unit"></span>
-    <span style="margin-left:50px">需求组织：<span data-bind="text:row.reqOrg"></span>
-    </span>
-  </div>
-  <div>
-    规格：<span data-bind="text:row.spec"></span>
-  </div>
-  <div>
-    备注：<span data-bind="text:row.remark"> </span>
-  </div>
-  <div class="row-refuse" style="position: absolute;right: 20px;top: 27%;">
-    <y-button params="">拒绝</y-button>
+    <div class="row">
+    <y-form parmas="labelWidth:'200px'">
+      <div class="col-md-4">
+        <y-formitem params="label: '数量：'">
+          <span style="color:red" data-bind="text: row.num + row.unit"></span>
+        </y-formitem>
+      </div>
+      <div class="col-md-4">
+        <y-formitem params="label: '需求组织：'">
+          <span data-bind="text:row.reqOrg"></span>
+        </y-formitem>
+      </div>
+      <div class="col-md-4">
+        <y-formitem params="label: '规格：'">
+          <y-showdetail params="text:row.spec"></y-showdetail>
+        </y-formitem>
+      </div>
+      <div class="col-md-4">
+        <y-formitem params="label: '备注：',style:{height:'auto'}">
+          <y-showdetail params="text:row.remark"></y-showdetail>
+        </y-formitem>
+      </div>
+      <div class="col-md-4">
+
+      </div>
+    </y-form>
+    </div>
   </div>
 </div>
 <style>
